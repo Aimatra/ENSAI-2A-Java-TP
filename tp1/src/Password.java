@@ -68,7 +68,40 @@ public class Password {
      */
     public static boolean isStrongPassword(String password) {
 
-        // Code here
+        int taille_mdp = password.length();
+        boolean grand = true;
+        boolean majuscule = false;
+        boolean minuscule = false;
+        boolean nospace = true;
+        boolean digit = false;
+
+        if (taille_mdp < 12) {
+            grand = false;
+            System.out.println("Mot de passe trop court");
+        }
+
+        for (int i = 0; i < taille_mdp; i++) {
+            char c = password.charAt(i);
+            if (Character.isUpperCase(c)) {
+                majuscule = true;
+            }
+            if (Character.isLowerCase(c)) {
+                minuscule = true;
+            }
+
+            if (Character.isWhitespace(c)) {
+                nospace = false;
+            }
+
+            if (Character.isDigit(c)) {
+                digit = true;
+            }
+        }
+
+        if (grand && minuscule && majuscule && nospace && digit) {
+            System.out.println("Le mot de passe est valide");
+            return true;
+        }
 
         return false;
     }
