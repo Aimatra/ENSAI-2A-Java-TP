@@ -77,7 +77,6 @@ public class Password {
 
         if (taille_mdp < 12) {
             grand = false;
-            System.out.println("Mot de passe trop court");
         }
 
         for (int i = 0; i < taille_mdp; i++) {
@@ -99,7 +98,6 @@ public class Password {
         }
 
         if (grand && minuscule && majuscule && nospace && digit) {
-            System.out.println("Le mot de passe est valide");
             return true;
         }
 
@@ -116,9 +114,15 @@ public class Password {
      */
     public static HashMap<String, Boolean> checkPasswordsList(ArrayList<String> passwords) {
 
-        // Code here
+        HashMap<String, Boolean> passwordMap = new HashMap<>();
 
-        return null;
+        for (int i = 0; i < passwords.size(); i++) {
+            String password = passwords.get(i);
+            boolean valide = isStrongPassword(password);
+            passwordMap.put(password, valide);
+        }
+
+        return passwordMap;
     }
 
     /**
