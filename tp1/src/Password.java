@@ -139,7 +139,10 @@ public class Password {
      */
     public static String generatePassword(int nbCar) {
 
-        // Code here
+        private static final String UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private static final String LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
+        private static final String DIGITS = "0123456789";
+        private static final String SPECIAL_CHARACTERS = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/";
 
         return null;
     }
